@@ -1,5 +1,7 @@
 ActiveAdmin.register Venue do
 
+ permit_params :title, :address, :city, :state, :zip, :coordinator_id, :website, :capacity, :description, :cancellation_policy, :drink_options, :food_options
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
