@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Coordinator resource:
+  # CREATE
+  get "/coordinators/new", :controller => "coordinators", :action => "new"
+  post "/create_coordinator", :controller => "coordinators", :action => "create"
+
+  # READ
+  get "/coordinators", :controller => "coordinators", :action => "index"
+  get "/coordinators/:id", :controller => "coordinators", :action => "show"
+
+  # UPDATE
+  get "/coordinators/:id/edit", :controller => "coordinators", :action => "edit"
+  post "/update_coordinator/:id", :controller => "coordinators", :action => "update"
+
+  # DELETE
+  get "/delete_coordinator/:id", :controller => "coordinators", :action => "destroy"
+  #------------------------------
+
   # Routes for the Photo resource:
   # CREATE
   get "/photos/new", :controller => "photos", :action => "new"

@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @coordinator.errors.any? %>
+  <% @coordinator.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Coordinator #<%= @coordinator.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_coordinator/<%= @coordinator.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for first_name -->
+      <div class="form-group">
+        <label for="first_name" class="control-label">
+          First name
+        </label>
+
+        <textarea id="first_name" name="first_name" placeholder="First name" class="form-control" rows="3"><%= @coordinator.first_name %></textarea>
+      </div>
+
+      <!-- Label and input for last_name -->
+      <div class="form-group">
+        <label for="last_name" class="control-label">
+          Last name
+        </label>
+
+        <input type="text" id="last_name" name="last_name" placeholder="Last name" class="form-control" value="<%= @coordinator.last_name %>">
+      </div>
+
+      <!-- Label and input for email_address -->
+      <div class="form-group">
+        <label for="email_address" class="control-label">
+          Email address
+        </label>
+
+        <input type="text" id="email_address" name="email_address" placeholder="Email address" class="form-control" value="<%= @coordinator.email_address %>">
+      </div>
+
+      <!-- Label and input for phone_number -->
+      <div class="form-group">
+        <label for="phone_number" class="control-label">
+          Phone number
+        </label>
+
+        <input type="text" id="phone_number" name="phone_number" placeholder="Phone number" class="form-control" value="<%= @coordinator.phone_number %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Coordinator
+      </button>
+      or
+      <a href="/coordinators/<%= @coordinator.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
