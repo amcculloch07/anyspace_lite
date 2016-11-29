@@ -5,6 +5,8 @@ class Venue < ApplicationRecord
 
   # Validations
 
+  validates :title, :presence => { :message => "Please enter venue name" }
+
   validates :zip, :presence => true
 
 end
