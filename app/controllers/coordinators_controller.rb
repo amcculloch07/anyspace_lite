@@ -1,6 +1,6 @@
 class CoordinatorsController < ApplicationController
   def index
-    @coordinators = Coordinator.all
+    @coordinators = Coordinator.page(params[:page]).per(10)
 
     render("coordinators/index.html.erb")
   end
