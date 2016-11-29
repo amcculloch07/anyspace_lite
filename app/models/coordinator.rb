@@ -5,4 +5,6 @@ class Coordinator < ApplicationRecord
 
   # Validations
 
+  validates :last_name, :presence => true
+
 end
