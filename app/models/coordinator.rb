@@ -1,6 +1,9 @@
 class Coordinator < ApplicationRecord
   # Direct associations
 
+  has_many   :venues,
+             :dependent => :nullify
+
   # Indirect associations
 
   # Validations
