@@ -5,4 +5,6 @@ class Venue < ApplicationRecord
 
   # Validations
 
+  validates :zip, :presence => true
+
 end
