@@ -6,6 +6,7 @@ class CoordinatorsController < ApplicationController
   end
 
   def show
+    @venue = Venue.new
     @coordinator = Coordinator.find(params[:id])
 
     render("coordinators/show.html.erb")
