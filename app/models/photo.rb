@@ -5,4 +5,6 @@ class Photo < ApplicationRecord
 
   # Validations
 
+  validates :image, :presence => { :message => "Please Upload an Image" }
+
 end
