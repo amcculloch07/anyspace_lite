@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root :to => "venues#index"
+  get "/", :controller => "venues", :action => "index"
+
   # Routes for the Rating resource:
   # CREATE
   get "/ratings/new", :controller => "ratings", :action => "new"
