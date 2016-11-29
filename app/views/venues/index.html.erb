@@ -40,7 +40,13 @@
         <td><%= venue.city %></td>
         <td><%= venue.state %></td>
         <td><%= venue.zip %></td>
-        <td><%= venue.coordinator.first_name %></td>
+        <td>
+          <% if venue.coordinator.present? %>
+            <a href="/coordinators/<%= venue.coordinator.id %>">
+              <%= venue.coordinator.first_name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= venue.website %></td>
         <td><%= venue.capacity %></td>
         <td><%= venue.description %></td>

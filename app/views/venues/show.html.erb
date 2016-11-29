@@ -25,7 +25,13 @@
       <dd><%= @venue.zip %></dd>
 
       <dt>Coordinator</dt>
-      <dd><%= @venue.coordinator_id %></dd>
+      <dd>
+        <% if @venue.coordinator.present? %>
+          <a href="/coordinators/<%= @venue.coordinator_id %>">
+            <%= @venue.coordinator.first_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Website</dt>
       <dd><%= @venue.website %></dd>

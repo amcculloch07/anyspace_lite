@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Venue</dt>
-      <dd><%= @rating.venue_id %></dd>
+      <dd>
+        <% if @rating.venue.present? %>
+          <a href="/venues/<%= @rating.venue_id %>">
+            <%= @rating.venue.title %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Comments</dt>
       <dd><%= @rating.comments %></dd>

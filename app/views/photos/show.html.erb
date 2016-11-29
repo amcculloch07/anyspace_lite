@@ -9,7 +9,13 @@
       <dd><%= @photo.image %></dd>
 
       <dt>Venue</dt>
-      <dd><%= @photo.venue_id %></dd>
+      <dd>
+        <% if @photo.venue.present? %>
+          <a href="/venues/<%= @photo.venue_id %>">
+            <%= @photo.venue.title %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
