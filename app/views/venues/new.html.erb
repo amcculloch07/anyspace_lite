@@ -69,7 +69,7 @@
           Coordinator
         </label>
 
-        <input type="text" id="coordinator_id" name="coordinator_id" placeholder="Coordinator" class="form-control" value="<%= @venue.coordinator_id %>">
+        <%= select_tag(:coordinator_id, options_from_collection_for_select(Coordinator.all, :id, :first_name, @venue.coordinator_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for website -->
