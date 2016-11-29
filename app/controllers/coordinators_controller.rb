@@ -1,6 +1,7 @@
 class CoordinatorsController < ApplicationController
   def index
-    @coordinators = Coordinator.page(params[:page]).per(10)
+    @q = Coordinator.ransack(params[:q])
+    @coordinators = @q.result(:distinct => true).includes(:venues).page(params[:page]).per(10)
 
     render("coordinators/index.html.erb")
   end
