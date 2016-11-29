@@ -1,0 +1,136 @@
+<!-- Validation failure messages -->
+<% if @venue.errors.any? %>
+  <% @venue.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Venue #<%= @venue.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_venue/<%= @venue.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @venue.title %>">
+      </div>
+
+      <!-- Label and input for address -->
+      <div class="form-group">
+        <label for="address" class="control-label">
+          Address
+        </label>
+
+        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="<%= @venue.address %>">
+      </div>
+
+      <!-- Label and input for city -->
+      <div class="form-group">
+        <label for="city" class="control-label">
+          City
+        </label>
+
+        <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= @venue.city %>">
+      </div>
+
+      <!-- Label and input for state -->
+      <div class="form-group">
+        <label for="state" class="control-label">
+          State
+        </label>
+
+        <input type="text" id="state" name="state" placeholder="State" class="form-control" value="<%= @venue.state %>">
+      </div>
+
+      <!-- Label and input for zip -->
+      <div class="form-group">
+        <label for="zip" class="control-label">
+          Zip
+        </label>
+
+        <input type="text" id="zip" name="zip" placeholder="Zip" class="form-control" value="<%= @venue.zip %>">
+      </div>
+
+      <!-- Label and input for coordinator_id -->
+      <div class="form-group">
+        <label for="coordinator_id" class="control-label">
+          Coordinator
+        </label>
+
+        <input type="text" id="coordinator_id" name="coordinator_id" placeholder="Coordinator" class="form-control" value="<%= @venue.coordinator_id %>">
+      </div>
+
+      <!-- Label and input for website -->
+      <div class="form-group">
+        <label for="website" class="control-label">
+          Website
+        </label>
+
+        <input type="text" id="website" name="website" placeholder="Website" class="form-control" value="<%= @venue.website %>">
+      </div>
+
+      <!-- Label and input for capacity -->
+      <div class="form-group">
+        <label for="capacity" class="control-label">
+          Capacity
+        </label>
+
+        <input type="text" id="capacity" name="capacity" placeholder="Capacity" class="form-control" value="<%= @venue.capacity %>">
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"><%= @venue.description %></textarea>
+      </div>
+
+      <!-- Label and input for cancellation_policy -->
+      <div class="form-group">
+        <label for="cancellation_policy" class="control-label">
+          Cancellation policy
+        </label>
+
+        <textarea id="cancellation_policy" name="cancellation_policy" placeholder="Cancellation policy" class="form-control" rows="3"><%= @venue.cancellation_policy %></textarea>
+      </div>
+
+      <!-- Label and input for drink_options -->
+      <div class="form-group">
+        <label for="drink_options" class="control-label">
+          Drink options
+        </label>
+
+        <textarea id="drink_options" name="drink_options" placeholder="Drink options" class="form-control" rows="3"><%= @venue.drink_options %></textarea>
+      </div>
+
+      <!-- Label and input for food_options -->
+      <div class="form-group">
+        <label for="food_options" class="control-label">
+          Food options
+        </label>
+
+        <textarea id="food_options" name="food_options" placeholder="Food options" class="form-control" rows="3"><%= @venue.food_options %></textarea>
+      </div>
+
+      <button class="btn btn-warning">
+        Update Venue
+      </button>
+      or
+      <a href="/venues/<%= @venue.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
