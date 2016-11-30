@@ -9,11 +9,7 @@
       <dd><%= @venue.title %></dd>
 
       <dt>Address</dt>
-      <dd>
-        <div>
-          <div id="location_map" style="height: 480px;"></div>
-        </div>
-      </dd>
+      <dd><%= @venue.address %></dd>
 
       <dt>City</dt>
       <dd><%= @venue.city %></dd>
@@ -28,7 +24,7 @@
       <dd>
         <% if @venue.coordinator.present? %>
           <a href="/coordinators/<%= @venue.coordinator_id %>">
-            <%= @venue.coordinator.first_name %>
+            <%= @venue.coordinator.first_name %> <%= @venue.coordinator.last_name %>
           </a>
         <% end %>
       </dd>
