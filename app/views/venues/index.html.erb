@@ -141,16 +141,16 @@
         <th>Title</th>
         <th>Address</th>
         <th>City</th>
-        <th>State</th>
-        <th>Zip</th>
+        <!-- <th>State</th>
+        <th>Zip</th> -->
         <th>Coordinator</th>
-        <th>Website</th>
-        <th>Capacity</th>
+        <!-- <th>Website</th>
+        <th>Capacity</th> -->
         <th>Description</th>
-        <th>Cancellation policy</th>
+        <!-- <th>Cancellation policy</th>
         <th>Drink options</th>
         <th>Food options</th>
-        <th>Actions</th>
+        <th>Actions</th> -->
       </tr>
 
       <% @venues.each do |venue| %>
@@ -158,8 +158,8 @@
         <td><%= venue.title %></td>
         <td><%= venue.address %></td>
         <td><%= venue.city %></td>
-        <td><%= venue.state %></td>
-        <td><%= venue.zip %></td>
+        <!-- <td><%= venue.state %></td>
+        <td><%= venue.zip %></td> -->
         <td>
           <% if venue.coordinator.present? %>
             <a href="/coordinators/<%= venue.coordinator.id %>">
@@ -167,12 +167,12 @@
             </a>
           <% end %>
         </td>
-        <td><%= venue.website %></td>
-        <td><%= venue.capacity %></td>
+        <!-- <td><%= venue.website %></td>
+        <td><%= venue.capacity %></td> -->
         <td><%= venue.description %></td>
-        <td><%= venue.cancellation_policy %></td>
+        <!-- <td><%= venue.cancellation_policy %></td>
         <td><%= venue.drink_options %></td>
-        <td><%= venue.food_options %></td>
+        <td><%= venue.food_options %></td> -->
         <td>
           <a href="/venues/<%= venue.id %>" class="btn btn-primary">Show</a>
           <a href="/venues/<%= venue.id %>/edit" class="btn btn-warning">Edit</a>
