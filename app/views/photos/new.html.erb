@@ -18,13 +18,13 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for image -->
+      <!-- Label and input for image_url -->
       <div class="form-group">
-        <label for="image" class="control-label">
-          Image
+        <label for="image_url" class="control-label">
+          Image url
         </label>
 
-        <input type="text" id="image" name="image" placeholder="Image" class="form-control" value="<%= @photo.image %>">
+        <input type="text" id="image_url" name="image_url" placeholder="Image url" class="form-control" value="<%= @photo.image_url %>">
       </div>
 
       <!-- Label and input for venue_id -->

@@ -22,8 +22,7 @@ class CoordinatorsController < ApplicationController
   def create
     @coordinator = Coordinator.new
 
-    @coordinator.first_name = params[:first_name]
-    @coordinator.last_name = params[:last_name]
+    @coordinator.name = params[:name]
     @coordinator.email_address = params[:email_address]
     @coordinator.phone_number = params[:phone_number]
 
@@ -52,8 +51,7 @@ class CoordinatorsController < ApplicationController
   def update
     @coordinator = Coordinator.find(params[:id])
 
-    @coordinator.first_name = params[:first_name]
-    @coordinator.last_name = params[:last_name]
+    @coordinator.name = params[:name]
     @coordinator.email_address = params[:email_address]
     @coordinator.phone_number = params[:phone_number]
 

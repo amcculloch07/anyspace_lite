@@ -9,8 +9,8 @@
       <p class="lead">Narrow results:</p>
 
         <div class="form-group">
-    <%= f.label :comments_cont, "Comments contains" %>
-    <%= f.text_field :comments_cont, :class => "form-control", :placeholder => "Comments contains" %>
+    <%= f.label :comments_venue_cont, "Comments venue contains" %>
+    <%= f.text_field :comments_venue_cont, :class => "form-control", :placeholder => "Comments venue contains" %>
   </div>
 
 <div class="form-group">
@@ -58,6 +58,46 @@
       <%= f.text_field :venue_title_cont, :class => "form-control", :placeholder => "Venue title contains" %>
     </div>
 
+<div class="form-group">
+          <%= f.label :created_at, "User Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='usergteqcreated_atPicker'>
+                  <%= f.text_field :user_created_at_gteq, :class => "form-control", :placeholder => "User Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='userlteqcreated_atPicker'>
+                  <%= f.text_field :user_created_at_lteq, :class => "form-control", :placeholder => "User Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#usergteqcreated_atPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#userlteqcreated_atPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#usergteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#userlteqcreated_atPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#userlteqcreated_atPicker').on("dp.change", function (e) {
+                  $('#usergteqcreated_atPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
       <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
       <a href="/ratings" class="btn btn-default btn-block mb-1">Clear filters</a>
@@ -72,13 +112,15 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
+        <th>Comments venue</th>
         <th>Venue</th>
-        <th>Comments</th>
+        <th>User</th>
         <th>Actions</th>
       </tr>
 
       <% @ratings.each do |rating| %>
       <tr>
+        <td><%= rating.comments_venue %></td>
         <td>
           <% if rating.venue.present? %>
             <a href="/venues/<%= rating.venue.id %>">
@@ -86,11 +128,20 @@
             </a>
           <% end %>
         </td>
-        <td><%= rating.comments %></td>
+        <td>
+          <% if rating.user.present? %>
+            <a href="/users/<%= rating.user.id %>">
+              <%= rating.user.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/ratings/<%= rating.id %>" class="btn btn-primary">Show</a>
-          <a href="/ratings/<%= rating.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_rating/<%= rating.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == rating.user %>
+            <a href="/ratings/<%= rating.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_rating/<%= rating.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

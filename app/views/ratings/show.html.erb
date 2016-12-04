@@ -5,6 +5,9 @@
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
+      <dt>Comments venue</dt>
+      <dd><%= @rating.comments_venue %></dd>
+
       <dt>Venue</dt>
       <dd>
         <% if @rating.venue.present? %>
@@ -14,8 +17,14 @@
         <% end %>
       </dd>
 
-      <dt>Comments</dt>
-      <dd><%= @rating.comments %></dd>
+      <dt>User</dt>
+      <dd>
+        <% if @rating.user.present? %>
+          <a href="/users/<%= @rating.user_id %>">
+            <%= @rating.user.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
@@ -23,12 +32,14 @@
       <a href="/ratings" class="btn btn-primary">
         Back
       </a>
-      <a href="/ratings/<%= @rating.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_rating/<%= @rating.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @rating.user %>
+        <a href="/ratings/<%= @rating.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_rating/<%= @rating.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>

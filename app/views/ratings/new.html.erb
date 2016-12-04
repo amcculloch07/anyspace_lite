@@ -18,6 +18,15 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
+      <!-- Label and input for comments_venue -->
+      <div class="form-group">
+        <label for="comments_venue" class="control-label">
+          Comments venue
+        </label>
+
+        <textarea id="comments_venue" name="comments_venue" placeholder="Comments venue" class="form-control" rows="3"><%= @rating.comments_venue %></textarea>
+      </div>
+
       <!-- Label and input for venue_id -->
       <div class="form-group">
         <label for="venue_id" class="control-label">
@@ -27,14 +36,8 @@
         <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :title, @rating.venue_id), :class => "form-control") %>
       </div>
 
-      <!-- Label and input for comments -->
-      <div class="form-group">
-        <label for="comments" class="control-label">
-          Comments
-        </label>
-
-        <textarea id="comments" name="comments" placeholder="Comments" class="form-control" rows="3"><%= @rating.comments %></textarea>
-      </div>
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
 
       <button class="btn btn-success">
         Create Rating

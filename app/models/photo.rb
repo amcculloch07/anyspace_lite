@@ -7,8 +7,10 @@ class Photo < ApplicationRecord
 
   # Validations
 
-  validates :image, :uniqueness => true
+  validates :image_url, :uniqueness => true
 
-  validates :image, :presence => { :message => "Please Upload an Image" }
+  validates :image_url, :presence => { :message => "Please Upload an Image" }
+
+  validates :venue_id, :presence => true
 
 end

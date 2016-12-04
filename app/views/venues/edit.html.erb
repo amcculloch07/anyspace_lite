@@ -18,15 +18,6 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-      <!-- Label and input for title -->
-      <div class="form-group">
-        <label for="title" class="control-label">
-          Title
-        </label>
-
-        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @venue.title %>">
-      </div>
-
       <!-- Label and input for address -->
       <div class="form-group">
         <label for="address" class="control-label">
@@ -34,6 +25,15 @@
         </label>
 
         <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="<%= @venue.address %>">
+      </div>
+
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @venue.title %>">
       </div>
 
       <!-- Label and input for city -->
@@ -69,7 +69,7 @@
           Coordinator
         </label>
 
-        <%= select_tag(:coordinator_id, options_from_collection_for_select(Coordinator.all, :id, :first_name, @venue.coordinator_id), :class => "form-control") %>
+        <%= select_tag(:coordinator_id, options_from_collection_for_select(Coordinator.all, :id, :name, @venue.coordinator_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for website -->
@@ -108,22 +108,310 @@
         <textarea id="cancellation_policy" name="cancellation_policy" placeholder="Cancellation policy" class="form-control" rows="3"><%= @venue.cancellation_policy %></textarea>
       </div>
 
-      <!-- Label and input for drink_options -->
+      <!-- Label and input for drink_option_1 -->
       <div class="form-group">
-        <label for="drink_options" class="control-label">
-          Drink options
+        <label for="drink_option_1" class="control-label">
+          Drink option 1
         </label>
 
-        <textarea id="drink_options" name="drink_options" placeholder="Drink options" class="form-control" rows="3"><%= @venue.drink_options %></textarea>
+        <textarea id="drink_option_1" name="drink_option_1" placeholder="Drink option 1" class="form-control" rows="3"><%= @venue.drink_option_1 %></textarea>
       </div>
 
-      <!-- Label and input for food_options -->
+      <!-- Label and input for drink_option_2 -->
       <div class="form-group">
-        <label for="food_options" class="control-label">
-          Food options
+        <label for="drink_option_2" class="control-label">
+          Drink option 2
         </label>
 
-        <textarea id="food_options" name="food_options" placeholder="Food options" class="form-control" rows="3"><%= @venue.food_options %></textarea>
+        <textarea id="drink_option_2" name="drink_option_2" placeholder="Drink option 2" class="form-control" rows="3"><%= @venue.drink_option_2 %></textarea>
+      </div>
+
+      <!-- Label and input for drink_option_3 -->
+      <div class="form-group">
+        <label for="drink_option_3" class="control-label">
+          Drink option 3
+        </label>
+
+        <textarea id="drink_option_3" name="drink_option_3" placeholder="Drink option 3" class="form-control" rows="3"><%= @venue.drink_option_3 %></textarea>
+      </div>
+
+      <!-- Label and input for drink_option_4 -->
+      <div class="form-group">
+        <label for="drink_option_4" class="control-label">
+          Drink option 4
+        </label>
+
+        <textarea id="drink_option_4" name="drink_option_4" placeholder="Drink option 4" class="form-control" rows="3"><%= @venue.drink_option_4 %></textarea>
+      </div>
+
+      <!-- Label and input for drink_option_5 -->
+      <div class="form-group">
+        <label for="drink_option_5" class="control-label">
+          Drink option 5
+        </label>
+
+        <textarea id="drink_option_5" name="drink_option_5" placeholder="Drink option 5" class="form-control" rows="3"><%= @venue.drink_option_5 %></textarea>
+      </div>
+
+      <!-- Label and input for food_option_1 -->
+      <div class="form-group">
+        <label for="food_option_1" class="control-label">
+          Food option 1
+        </label>
+
+        <textarea id="food_option_1" name="food_option_1" placeholder="Food option 1" class="form-control" rows="3"><%= @venue.food_option_1 %></textarea>
+      </div>
+
+      <!-- Label and input for food_option_2 -->
+      <div class="form-group">
+        <label for="food_option_2" class="control-label">
+          Food option 2
+        </label>
+
+        <textarea id="food_option_2" name="food_option_2" placeholder="Food option 2" class="form-control" rows="3"><%= @venue.food_option_2 %></textarea>
+      </div>
+
+      <!-- Label and input for food_option_3 -->
+      <div class="form-group">
+        <label for="food_option_3" class="control-label">
+          Food option 3
+        </label>
+
+        <textarea id="food_option_3" name="food_option_3" placeholder="Food option 3" class="form-control" rows="3"><%= @venue.food_option_3 %></textarea>
+      </div>
+
+      <!-- Label and input for food_option_4 -->
+      <div class="form-group">
+        <label for="food_option_4" class="control-label">
+          Food option 4
+        </label>
+
+        <textarea id="food_option_4" name="food_option_4" placeholder="Food option 4" class="form-control" rows="3"><%= @venue.food_option_4 %></textarea>
+      </div>
+
+      <!-- Label and input for food_option_5 -->
+      <div class="form-group">
+        <label for="food_option_5" class="control-label">
+          Food option 5
+        </label>
+
+        <textarea id="food_option_5" name="food_option_5" placeholder="Food option 5" class="form-control" rows="3"><%= @venue.food_option_5 %></textarea>
+      </div>
+
+      <!-- Label and input for amenity_1 -->
+      <div class="form-group">
+        <label for="amenity_1" class="control-label">
+          Amenity 1
+        </label>
+
+        <input type="text" id="amenity_1" name="amenity_1" placeholder="Amenity 1" class="form-control" value="<%= @venue.amenity_1 %>">
+      </div>
+
+      <!-- Label and input for amenity_2 -->
+      <div class="form-group">
+        <label for="amenity_2" class="control-label">
+          Amenity 2
+        </label>
+
+        <input type="text" id="amenity_2" name="amenity_2" placeholder="Amenity 2" class="form-control" value="<%= @venue.amenity_2 %>">
+      </div>
+
+      <!-- Label and input for amenity_3 -->
+      <div class="form-group">
+        <label for="amenity_3" class="control-label">
+          Amenity 3
+        </label>
+
+        <input type="text" id="amenity_3" name="amenity_3" placeholder="Amenity 3" class="form-control" value="<%= @venue.amenity_3 %>">
+      </div>
+
+      <!-- Label and input for amenity_4 -->
+      <div class="form-group">
+        <label for="amenity_4" class="control-label">
+          Amenity 4
+        </label>
+
+        <input type="text" id="amenity_4" name="amenity_4" placeholder="Amenity 4" class="form-control" value="<%= @venue.amenity_4 %>">
+      </div>
+
+      <!-- Label and input for amenity_5 -->
+      <div class="form-group">
+        <label for="amenity_5" class="control-label">
+          Amenity 5
+        </label>
+
+        <input type="text" id="amenity_5" name="amenity_5" placeholder="Amenity 5" class="form-control" value="<%= @venue.amenity_5 %>">
+      </div>
+
+      <!-- Label and input for amenity_6 -->
+      <div class="form-group">
+        <label for="amenity_6" class="control-label">
+          Amenity 6
+        </label>
+
+        <input type="text" id="amenity_6" name="amenity_6" placeholder="Amenity 6" class="form-control" value="<%= @venue.amenity_6 %>">
+      </div>
+
+      <!-- Label and input for amenity_7 -->
+      <div class="form-group">
+        <label for="amenity_7" class="control-label">
+          Amenity 7
+        </label>
+
+        <input type="text" id="amenity_7" name="amenity_7" placeholder="Amenity 7" class="form-control" value="<%= @venue.amenity_7 %>">
+      </div>
+
+      <!-- Label and input for amenity_8 -->
+      <div class="form-group">
+        <label for="amenity_8" class="control-label">
+          Amenity 8
+        </label>
+
+        <input type="text" id="amenity_8" name="amenity_8" placeholder="Amenity 8" class="form-control" value="<%= @venue.amenity_8 %>">
+      </div>
+
+      <!-- Label and input for rule_1 -->
+      <div class="form-group">
+        <label for="rule_1" class="control-label">
+          Rule 1
+        </label>
+
+        <input type="text" id="rule_1" name="rule_1" placeholder="Rule 1" class="form-control" value="<%= @venue.rule_1 %>">
+      </div>
+
+      <!-- Label and input for rule_2 -->
+      <div class="form-group">
+        <label for="rule_2" class="control-label">
+          Rule 2
+        </label>
+
+        <input type="text" id="rule_2" name="rule_2" placeholder="Rule 2" class="form-control" value="<%= @venue.rule_2 %>">
+      </div>
+
+      <!-- Label and input for rule_3 -->
+      <div class="form-group">
+        <label for="rule_3" class="control-label">
+          Rule 3
+        </label>
+
+        <input type="text" id="rule_3" name="rule_3" placeholder="Rule 3" class="form-control" value="<%= @venue.rule_3 %>">
+      </div>
+
+      <!-- Label and input for rule_4 -->
+      <div class="form-group">
+        <label for="rule_4" class="control-label">
+          Rule 4
+        </label>
+
+        <input type="text" id="rule_4" name="rule_4" placeholder="Rule 4" class="form-control" value="<%= @venue.rule_4 %>">
+      </div>
+
+      <!-- Label and input for rule_5 -->
+      <div class="form-group">
+        <label for="rule_5" class="control-label">
+          Rule 5
+        </label>
+
+        <input type="text" id="rule_5" name="rule_5" placeholder="Rule 5" class="form-control" value="<%= @venue.rule_5 %>">
+      </div>
+
+      <!-- Label and input for rule_6 -->
+      <div class="form-group">
+        <label for="rule_6" class="control-label">
+          Rule 6
+        </label>
+
+        <input type="text" id="rule_6" name="rule_6" placeholder="Rule 6" class="form-control" value="<%= @venue.rule_6 %>">
+      </div>
+
+      <!-- Label and input for do1_price -->
+      <div class="form-group">
+        <label for="do1_price" class="control-label">
+          Do1 price
+        </label>
+
+        <input type="text" id="do1_price" name="do1_price" placeholder="Do1 price" class="form-control" value="<%= @venue.do1_price %>">
+      </div>
+
+      <!-- Label and input for do2_price -->
+      <div class="form-group">
+        <label for="do2_price" class="control-label">
+          Do2 price
+        </label>
+
+        <input type="text" id="do2_price" name="do2_price" placeholder="Do2 price" class="form-control" value="<%= @venue.do2_price %>">
+      </div>
+
+      <!-- Label and input for do3_price -->
+      <div class="form-group">
+        <label for="do3_price" class="control-label">
+          Do3 price
+        </label>
+
+        <input type="text" id="do3_price" name="do3_price" placeholder="Do3 price" class="form-control" value="<%= @venue.do3_price %>">
+      </div>
+
+      <!-- Label and input for do4_price -->
+      <div class="form-group">
+        <label for="do4_price" class="control-label">
+          Do4 price
+        </label>
+
+        <input type="text" id="do4_price" name="do4_price" placeholder="Do4 price" class="form-control" value="<%= @venue.do4_price %>">
+      </div>
+
+      <!-- Label and input for do5_price -->
+      <div class="form-group">
+        <label for="do5_price" class="control-label">
+          Do5 price
+        </label>
+
+        <input type="text" id="do5_price" name="do5_price" placeholder="Do5 price" class="form-control" value="<%= @venue.do5_price %>">
+      </div>
+
+      <!-- Label and input for fo1_price -->
+      <div class="form-group">
+        <label for="fo1_price" class="control-label">
+          Fo1 price
+        </label>
+
+        <input type="text" id="fo1_price" name="fo1_price" placeholder="Fo1 price" class="form-control" value="<%= @venue.fo1_price %>">
+      </div>
+
+      <!-- Label and input for fo2_price -->
+      <div class="form-group">
+        <label for="fo2_price" class="control-label">
+          Fo2 price
+        </label>
+
+        <input type="text" id="fo2_price" name="fo2_price" placeholder="Fo2 price" class="form-control" value="<%= @venue.fo2_price %>">
+      </div>
+
+      <!-- Label and input for fo3_price -->
+      <div class="form-group">
+        <label for="fo3_price" class="control-label">
+          Fo3 price
+        </label>
+
+        <input type="text" id="fo3_price" name="fo3_price" placeholder="Fo3 price" class="form-control" value="<%= @venue.fo3_price %>">
+      </div>
+
+      <!-- Label and input for fo4_price -->
+      <div class="form-group">
+        <label for="fo4_price" class="control-label">
+          Fo4 price
+        </label>
+
+        <input type="text" id="fo4_price" name="fo4_price" placeholder="Fo4 price" class="form-control" value="<%= @venue.fo4_price %>">
+      </div>
+
+      <!-- Label and input for fo5_price -->
+      <div class="form-group">
+        <label for="fo5_price" class="control-label">
+          Fo5 price
+        </label>
+
+        <input type="text" id="fo5_price" name="fo5_price" placeholder="Fo5 price" class="form-control" value="<%= @venue.fo5_price %>">
       </div>
 
       <button class="btn btn-warning">

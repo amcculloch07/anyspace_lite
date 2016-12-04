@@ -21,7 +21,7 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new
 
-    @photo.image = params[:image]
+    @photo.image_url = params[:image_url]
     @photo.venue_id = params[:venue_id]
 
     save_status = @photo.save
@@ -49,7 +49,7 @@ class PhotosController < ApplicationController
   def update
     @photo = Photo.find(params[:id])
 
-    @photo.image = params[:image]
+    @photo.image_url = params[:image_url]
     @photo.venue_id = params[:venue_id]
 
     save_status = @photo.save

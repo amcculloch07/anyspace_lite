@@ -1,7 +1,17 @@
 class RatingsController < ApplicationController
+  before_action :current_user_must_be_rating_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_rating_user
+    rating = Rating.find(params[:id])
+
+    unless current_user == rating.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @q = Rating.ransack(params[:q])
-    @ratings = @q.result(:distinct => true).includes(:venue).page(params[:page]).per(10)
+    @ratings = @q.result(:distinct => true).includes(:venue, :user).page(params[:page]).per(10)
 
     render("ratings/index.html.erb")
   end
@@ -21,8 +31,9 @@ class RatingsController < ApplicationController
   def create
     @rating = Rating.new
 
+    @rating.comments_venue = params[:comments_venue]
     @rating.venue_id = params[:venue_id]
-    @rating.comments = params[:comments]
+    @rating.user_id = params[:user_id]
 
     save_status = @rating.save
 
@@ -49,8 +60,9 @@ class RatingsController < ApplicationController
   def update
     @rating = Rating.find(params[:id])
 
+    @rating.comments_venue = params[:comments_venue]
     @rating.venue_id = params[:venue_id]
-    @rating.comments = params[:comments]
+    @rating.user_id = params[:user_id]
 
     save_status = @rating.save
 
