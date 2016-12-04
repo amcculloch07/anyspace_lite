@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root :to => "venues#index"
-  get "/", :controller => "venues", :action => "index"
+  devise_for :users
+  # Routes for the User resource:
+  # READ
+  get "/users", :controller => "users", :action => "index"
+  get "/users/:id", :controller => "users", :action => "show"
+
 
   # Routes for the Rating resource:
   # CREATE

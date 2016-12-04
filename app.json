@@ -1,1 +1,1 @@
-{"name":"AnySpace_Lite","repository":"https://github.com/amcculloch07/anyspace_lite","env":{"CLOUDINARY_CLOUD_NAME":{"required":true},"CLOUDINARY_API_KEY":{"required":true},"CLOUDINARY_API_SECRET":{"required":true},"ROLLBAR_ACCESS_TOKEN":{"required":true}}}
+{"name":"AnySpace_Lite_2","repository":"https://github.com/amcculloch07/anyspace_lite","env":{"CLOUDINARY_CLOUD_NAME":{"required":true},"CLOUDINARY_API_KEY":{"required":true},"CLOUDINARY_API_SECRET":{"required":true},"ROLLBAR_ACCESS_TOKEN":{"required":true}}}

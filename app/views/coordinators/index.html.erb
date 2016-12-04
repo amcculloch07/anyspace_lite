@@ -9,8 +9,8 @@
       <p class="lead">Narrow results:</p>
 
         <div class="form-group">
-    <%= f.label :first_name_cont, "First name contains" %>
-    <%= f.text_field :first_name_cont, :class => "form-control", :placeholder => "First name contains" %>
+    <%= f.label :name_cont, "Name contains" %>
+    <%= f.text_field :name_cont, :class => "form-control", :placeholder => "Name contains" %>
   </div>
 
 <div class="form-group">
@@ -21,11 +21,6 @@
 <div class="form-group">
     <%= f.label :email_address_cont, "Email address contains" %>
     <%= f.text_field :email_address_cont, :class => "form-control", :placeholder => "Email address contains" %>
-  </div>
-
-<div class="form-group">
-    <%= f.label :last_name_cont, "Last name contains" %>
-    <%= f.text_field :last_name_cont, :class => "form-control", :placeholder => "Last name contains" %>
   </div>
 
 <div class="form-group">
@@ -87,8 +82,7 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>First name</th>
-        <th>Last name</th>
+        <th>Name</th>
         <th>Email address</th>
         <th>Phone number</th>
         <th>Actions</th>
@@ -96,8 +90,7 @@
 
       <% @coordinators.each do |coordinator| %>
       <tr>
-        <td><%= coordinator.first_name %></td>
-        <td><%= coordinator.last_name %></td>
+        <td><%= coordinator.name %></td>
         <td><%= coordinator.email_address %></td>
         <td><%= coordinator.phone_number %></td>
         <td>

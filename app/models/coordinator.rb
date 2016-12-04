@@ -12,8 +12,10 @@ class Coordinator < ApplicationRecord
 
   validates :email_address, :presence => true
 
-  validates :first_name, :presence => true
+  validates :name, :uniqueness => { :scope => [:email_address, :phone_number] }
 
-  validates :last_name, :presence => true
+  validates :name, :presence => true
+
+  validates :phone_number, :presence => true
 
 end

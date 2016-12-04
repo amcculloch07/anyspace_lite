@@ -2,11 +2,6 @@ class VenuesController < ApplicationController
   def index
     @q = Venue.ransack(params[:q])
     @venues = @q.result(:distinct => true).includes(:photos, :ratings, :coordinator).page(params[:page]).per(10)
-    @location_hash = Gmaps4rails.build_markers(@venues.where.not(:address_latitude => nil)) do |venue, marker|
-      marker.lat venue.address_latitude
-      marker.lng venue.address_longitude
-      marker.infowindow "<h5><a href='/venues/#{venue.id}'>#{venue.created_at}</a></h5><small>#{venue.address_formatted_address}</small>"
-    end
 
     render("venues/index.html.erb")
   end
@@ -28,8 +23,8 @@ class VenuesController < ApplicationController
   def create
     @venue = Venue.new
 
-    @venue.title = params[:title]
     @venue.address = params[:address]
+    @venue.title = params[:title]
     @venue.city = params[:city]
     @venue.state = params[:state]
     @venue.zip = params[:zip]
@@ -38,8 +33,40 @@ class VenuesController < ApplicationController
     @venue.capacity = params[:capacity]
     @venue.description = params[:description]
     @venue.cancellation_policy = params[:cancellation_policy]
-    @venue.drink_options = params[:drink_options]
-    @venue.food_options = params[:food_options]
+    @venue.drink_option_1 = params[:drink_option_1]
+    @venue.drink_option_2 = params[:drink_option_2]
+    @venue.drink_option_3 = params[:drink_option_3]
+    @venue.drink_option_4 = params[:drink_option_4]
+    @venue.drink_option_5 = params[:drink_option_5]
+    @venue.food_option_1 = params[:food_option_1]
+    @venue.food_option_2 = params[:food_option_2]
+    @venue.food_option_3 = params[:food_option_3]
+    @venue.food_option_4 = params[:food_option_4]
+    @venue.food_option_5 = params[:food_option_5]
+    @venue.amenity_1 = params[:amenity_1]
+    @venue.amenity_2 = params[:amenity_2]
+    @venue.amenity_3 = params[:amenity_3]
+    @venue.amenity_4 = params[:amenity_4]
+    @venue.amenity_5 = params[:amenity_5]
+    @venue.amenity_6 = params[:amenity_6]
+    @venue.amenity_7 = params[:amenity_7]
+    @venue.amenity_8 = params[:amenity_8]
+    @venue.rule_1 = params[:rule_1]
+    @venue.rule_2 = params[:rule_2]
+    @venue.rule_3 = params[:rule_3]
+    @venue.rule_4 = params[:rule_4]
+    @venue.rule_5 = params[:rule_5]
+    @venue.rule_6 = params[:rule_6]
+    @venue.do1_price = params[:do1_price]
+    @venue.do2_price = params[:do2_price]
+    @venue.do3_price = params[:do3_price]
+    @venue.do4_price = params[:do4_price]
+    @venue.do5_price = params[:do5_price]
+    @venue.fo1_price = params[:fo1_price]
+    @venue.fo2_price = params[:fo2_price]
+    @venue.fo3_price = params[:fo3_price]
+    @venue.fo4_price = params[:fo4_price]
+    @venue.fo5_price = params[:fo5_price]
 
     save_status = @venue.save
 
@@ -66,8 +93,8 @@ class VenuesController < ApplicationController
   def update
     @venue = Venue.find(params[:id])
 
-    @venue.title = params[:title]
     @venue.address = params[:address]
+    @venue.title = params[:title]
     @venue.city = params[:city]
     @venue.state = params[:state]
     @venue.zip = params[:zip]
@@ -76,8 +103,40 @@ class VenuesController < ApplicationController
     @venue.capacity = params[:capacity]
     @venue.description = params[:description]
     @venue.cancellation_policy = params[:cancellation_policy]
-    @venue.drink_options = params[:drink_options]
-    @venue.food_options = params[:food_options]
+    @venue.drink_option_1 = params[:drink_option_1]
+    @venue.drink_option_2 = params[:drink_option_2]
+    @venue.drink_option_3 = params[:drink_option_3]
+    @venue.drink_option_4 = params[:drink_option_4]
+    @venue.drink_option_5 = params[:drink_option_5]
+    @venue.food_option_1 = params[:food_option_1]
+    @venue.food_option_2 = params[:food_option_2]
+    @venue.food_option_3 = params[:food_option_3]
+    @venue.food_option_4 = params[:food_option_4]
+    @venue.food_option_5 = params[:food_option_5]
+    @venue.amenity_1 = params[:amenity_1]
+    @venue.amenity_2 = params[:amenity_2]
+    @venue.amenity_3 = params[:amenity_3]
+    @venue.amenity_4 = params[:amenity_4]
+    @venue.amenity_5 = params[:amenity_5]
+    @venue.amenity_6 = params[:amenity_6]
+    @venue.amenity_7 = params[:amenity_7]
+    @venue.amenity_8 = params[:amenity_8]
+    @venue.rule_1 = params[:rule_1]
+    @venue.rule_2 = params[:rule_2]
+    @venue.rule_3 = params[:rule_3]
+    @venue.rule_4 = params[:rule_4]
+    @venue.rule_5 = params[:rule_5]
+    @venue.rule_6 = params[:rule_6]
+    @venue.do1_price = params[:do1_price]
+    @venue.do2_price = params[:do2_price]
+    @venue.do3_price = params[:do3_price]
+    @venue.do4_price = params[:do4_price]
+    @venue.do5_price = params[:do5_price]
+    @venue.fo1_price = params[:fo1_price]
+    @venue.fo2_price = params[:fo2_price]
+    @venue.fo3_price = params[:fo3_price]
+    @venue.fo4_price = params[:fo4_price]
+    @venue.fo5_price = params[:fo5_price]
 
     save_status = @venue.save
 
