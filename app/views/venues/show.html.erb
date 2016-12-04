@@ -1,51 +1,95 @@
 <div class="page-header">
-  <h3>Venue #<%= @venue.id %></h3>
+  <div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+          <h1>
+            <a href="<%= @venue.website %>">
+              <%= @venue.title %>
+            </a>
+          </h1>
+          <h4><%= @venue.address %>, <%= @venue.city %>, <%= @venue.state %>, <%= @venue.zip %></h4>
+        </div>
+
+
+    </div>
+  </div>
+  </div>
+
+<!-- Row with pictures and map -->
+<div class="row">
+
+<!-- Picture Carousel -->
+  <div class="col-lg-8">
+
+    
+  </div>
+
+  <!-- Google Map -->
+  <div class="col-lg-4">
+  <iframe
+    width="400"
+    height="300"
+    frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA7LQxvUQoh4RY8Ns4hBZJyCHeHV7Ebpyc
+      &q=<%= @venue.address %>+<%= @venue.city %>+<%= @venue.state %>+<%= @venue.zip %>" allowfullscreen>
+  </iframe>
+  </div>
 </div>
 
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
-      <dt>Title</dt>
-      <dd><%= @venue.title %></dd>
-
-      <dt>Address</dt>
-      <dd><%= @venue.address %></dd>
-
-      <dt>City</dt>
-      <dd><%= @venue.city %></dd>
-
-      <dt>State</dt>
-      <dd><%= @venue.state %></dd>
-
-      <dt>Zip</dt>
-      <dd><%= @venue.zip %></dd>
-
-      <dt>Coordinator</dt>
-      <dd>
-        <% if @venue.coordinator.present? %>
-          <a href="/coordinators/<%= @venue.coordinator_id %>">
-            <%= @venue.coordinator.first_name %> <%= @venue.coordinator.last_name %>
-          </a>
-        <% end %>
-      </dd>
-
-      <dt>Website</dt>
-      <dd><%= @venue.website %></dd>
-
-      <dt>Capacity</dt>
-      <dd><%= @venue.capacity %></dd>
 
       <dt>Description</dt>
       <dd><%= @venue.description %></dd>
 
+      <dt>Capacity:</dt>
+      <dd><%= @venue.capacity %></dd>
+
       <dt>Cancellation policy</dt>
       <dd><%= @venue.cancellation_policy %></dd>
 
-      <dt>Drink options</dt>
-      <dd><%= @venue.drink_options %></dd>
+      <dt>Event Coordinator:</dt>
+      <dd>
+      <% if @venue.coordinator.present? %>
+        <a href="/coordinators/<%= @venue.coordinator_id %>">
+          <%= @venue.coordinator.first_name %> <%= @venue.coordinator.last_name %>
+        </a>
+      </dd>
+      <dd><%= @venue.coordinator.email_address %> </dd>
+      <dd><%= @venue.coordinator.phone_number %> </dd>
+      <% end %>
 
-      <dt>Food options</dt>
-      <dd><%= @venue.food_options %></dd>
+
+
+
+    </dt>
+
+</div>
+
+<div class="row">
+  <div class="col-sm-1">
+  </div>
+  <div class="col-sm-5">
+    <dt>Food Options</dt>
+    <% if @venue.food_options.present? %>
+    <dd><%= @venue.food_options %></dd>
+    <% else %>
+    <h5>N/A</h5>
+    <% end %>
+  </div>
+
+<div class="col-sm-6">
+    <dt>Drink Options</dt>
+    <% if @venue.drink_options.present? %>
+    <%= @venue.drink_options %>
+    <% else %>
+    <h5>N/A</h5>
+    <% end %>
+
+</div>
+</div>
+
 
     </dl>
 
@@ -53,12 +97,12 @@
       <a href="/venues" class="btn btn-primary">
         Back
       </a>
-      <a href="/venues/<%= @venue.id %>/edit" class="btn btn-warning">
+      <!-- <a href="/venues/<%= @venue.id %>/edit" class="btn btn-warning">
         Edit
       </a>
       <a href="/delete_venue/<%= @venue.id %>" class="btn btn-danger" rel="nofollow">
         Delete
-      </a>
+      </a> -->
     </div>
   </div>
 </div>
@@ -170,7 +214,7 @@
     </ul>
   </div>
 </div>
-
+ -->
 
 <script src="//maps.google.com/maps/api/js?v=3.24&key=AIzaSyCOTPWiuvyyo6sKoIBzKA4-1ol-vTOIOlM"></script>
 <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
